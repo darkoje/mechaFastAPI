@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# replace appname with your app name
+APP=fastapi
+
+APPDIR=$HOME/apps/$APP
+
+# set PYTHONPATH to your top level project directory, modify as needed for your project:
+PYTHONPATH=$APPDIR/
+
+# set HANDLER to your ASGI handler, eg for `myproject/asgi.py` use:
+HANDLER=fastapi.main
+
+# set PORT to your app's port:
+PORT=64997
+
+STARTCMD="$APPDIR/env/bin/gunicorn main:application --workers 1 --worker-class uvicorn.workers.UvicornWorker --bind 127.0.0.1:$PORT"
+
+(pgrep -f "$STARTCMD" > /dev/null && echo "$APP already running.") || (PYTHONPATH=$PYTHONPATH $STARTCMD && echo "started $APP.")
+
