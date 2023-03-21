@@ -13,9 +13,12 @@ class Database:
         self.sessionLocal().close()
 
     def open(self):
-        self.engine = create_engine(self.dbname, connect_args={"check_same_thread": False})
+        #self.engine = create_engine(self.dbname, connect_args={"check_same_thread": False})
+        self.engine = create_engine(self.dbname)
         self.sessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=self.engine)
         self.base = declarative_base()
 
 
-database = Database(Config.SQLITE_DB)
+# database = Database(Config.SQLITE_DB)
+database = Database(Config.MYSQL_DB)
+

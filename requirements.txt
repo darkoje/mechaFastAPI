@@ -44,6 +44,7 @@ pycryptodome==3.17
 pydantic==1.10.6
 pyee==9.0.4
 pymerkle==2.0.2
+PyMySQL==1.0.2
 pyrsistent==0.19.3
 python-dotenv==1.0.0
 pytz==2022.7.1

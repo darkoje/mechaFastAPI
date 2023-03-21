@@ -7,7 +7,7 @@ Base = database.base
 class Mecha(Base):
     __tablename__ = "mechas"
     mecha_id = Column(Integer, primary_key=True, unique=True, index=True)
-    owner = Column(String)
+    owner = Column(String(42))
     staked = Column(Integer)
 
     class Config:
