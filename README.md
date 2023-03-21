@@ -14,9 +14,8 @@ Requirements are Python (3.8-3.10) and python modules from requirements.txt. Thi
 
 File **config.py** holds all app settings. All settings are read from  **.env** file.
 
-## Run
-    dev:
-        uvicorn main:app
+## Run Dev
+- `uvicorn main:application`
 
 In production gunicorn is recommended.
 
